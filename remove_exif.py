@@ -18,9 +18,9 @@ def check_exiftool():
 
 def get_folder():
     if len(sys.argv) > 1:
-        return Path(sys.argv[1])
+        return Path(sys.argv[1]).expanduser()
     path = input("请输入图片/视频文件夹路径：").strip()
-    return Path(path)
+    return Path(path).expanduser()
 
 
 def scan_files(folder: Path) -> list[Path]:
